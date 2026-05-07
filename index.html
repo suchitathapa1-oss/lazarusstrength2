@@ -2,700 +2,147 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lazarus Strength</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Complete Payment</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    :root {
-      --bg: #050505;
-      --bg2: #0c0c0c;
-      --purple: #8b2cf5;
-      --purple-light: #a855f7;
-      --text: #f4f4f4;
-      --grey: #9a9a9a;
-      --card: rgba(255,255,255,0.03);
-      --border: rgba(255,255,255,0.08);
+    body{
+      background:#050505;
+      color:white;
+      font-family:'Inter',sans-serif;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      overflow:hidden;
     }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
-      background-image:
-        radial-gradient(circle at top right, rgba(139,44,245,0.15), transparent 30%),
-        radial-gradient(circle at bottom left, rgba(139,44,245,0.08), transparent 30%);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-      opacity: 0.25;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    section {
-      padding: 100px 8%;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
+    body::before{
+      content:'';
+      position:fixed;
+      inset:0;
       background:
-        linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
-        url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1974&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      filter: grayscale(100%);
-      transform: scale(1.05);
+      radial-gradient(circle at top right, rgba(139,44,245,0.15), transparent 30%);
+      pointer-events:none;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1000px;
-      animation: fadeUp 1s ease;
+    .card{
+      width:100%;
+      max-width:500px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:28px;
+      padding:50px 35px;
+      text-align:center;
+      backdrop-filter:blur(12px);
+      box-shadow:0 0 40px rgba(139,44,245,0.12);
     }
 
-    .logo {
-      width: 180px;
-      margin-bottom: 30px;
-      filter: drop-shadow(0 0 20px rgba(139,44,245,0.4));
+    h1{
+      font-family:'Anton',sans-serif;
+      font-size:3.2rem;
+      text-transform:uppercase;
+      line-height:1;
+      margin-bottom:20px;
+      letter-spacing:1px;
     }
 
-    .headline {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(4rem, 12vw, 8rem);
-      line-height: 0.95;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
+    h1 span{
+      color:#8b2cf5;
     }
 
-    .headline span {
-      color: var(--purple);
+    p{
+      color:#cfcfcf;
+      line-height:1.7;
+      margin-bottom:30px;
     }
 
-    .subheadline {
-      font-size: 1.15rem;
-      color: #d0d0d0;
-      max-width: 700px;
-      margin: 0 auto 20px;
-      line-height: 1.8;
+    .amount{
+      font-size:4rem;
+      color:#a855f7;
+      font-weight:800;
+      margin-bottom:35px;
     }
 
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-      margin-bottom: 40px;
+    .pay-btn{
+      display:inline-block;
+      width:100%;
+      background:#8b2cf5;
+      color:white;
+      text-decoration:none;
+      padding:18px;
+      border-radius:16px;
+      font-weight:700;
+      transition:0.3s ease;
+      box-shadow:0 0 30px rgba(139,44,245,0.3);
     }
 
-    .stat-box {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border);
-      padding: 18px 28px;
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
+    .pay-btn:hover{
+      transform:translateY(-4px);
+      background:#a855f7;
     }
 
-    .stat-box h3 {
-      color: var(--purple-light);
-      font-size: 1.8rem;
-      margin-bottom: 5px;
+    .back{
+      display:inline-block;
+      margin-top:20px;
+      color:#9a9a9a;
+      text-decoration:none;
     }
 
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .btn {
-      text-decoration: none;
-      padding: 16px 30px;
-      border-radius: 14px;
-      font-weight: 700;
-      transition: 0.3s ease;
-      display: inline-block;
-    }
-
-    .btn-primary {
-      background: var(--purple);
-      color: white;
-      box-shadow: 0 0 30px rgba(139,44,245,0.35);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      background: var(--purple-light);
-    }
-
-    .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.2);
-      color: white;
-      background: rgba(255,255,255,0.04);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--purple);
-      color: var(--purple-light);
-    }
-
-    .section-title {
-      text-align: center;
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(3rem, 8vw, 5rem);
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      letter-spacing: 1px;
-    }
-
-    .section-sub {
-      text-align: center;
-      color: var(--grey);
-      max-width: 700px;
-      margin: 0 auto 70px;
-      line-height: 1.7;
-      font-size: 1.05rem;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-
-    .about-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 35px;
-      border-radius: 24px;
-      transition: 0.3s ease;
-    }
-
-    .about-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(139,44,245,0.5);
-      box-shadow: 0 0 40px rgba(139,44,245,0.12);
-    }
-
-    .about-card h3 {
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-    }
-
-    .about-card p {
-      color: #b8b8b8;
-      line-height: 1.7;
-    }
-
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      align-items: stretch;
-    }
-
-    .plan-card {
-      background: linear-gradient(to bottom, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 40px 30px;
-      position: relative;
-      overflow: hidden;
-      transition: 0.4s ease;
-    }
-
-    .plan-card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(139,44,245,0.5);
-      box-shadow: 0 0 50px rgba(139,44,245,0.18);
-    }
-
-    .popular {
-      border: 2px solid var(--purple);
-      transform: scale(1.03);
-    }
-
-    .badge {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: var(--purple);
-      text-align: center;
-      padding: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-
-    .plan-title {
-      font-family: 'Anton', sans-serif;
-      font-size: 2.2rem;
-      margin-top: 20px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-
-    .plan-sub {
-      color: var(--purple-light);
-      margin-bottom: 25px;
-      font-weight: 600;
-    }
-
-    .price {
-      font-size: 4rem;
-      color: var(--purple-light);
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    .month {
-      color: var(--grey);
-      margin-bottom: 30px;
-    }
-
-    .features {
-      list-style: none;
-      margin-bottom: 35px;
-    }
-
-    .features li {
-      margin-bottom: 16px;
-      color: #d4d4d4;
-      line-height: 1.5;
-    }
-
-    .features li strong {
-      color: white;
-    }
-
-    .plan-btn {
-      width: 100%;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-
-    .every-plan {
-      margin-top: 80px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .mini-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-    }
-
-    .mini-card h4 {
-      margin-bottom: 10px;
-      color: var(--purple-light);
-    }
-
-    .placeholder {
-      text-align: center;
-      padding: 80px 40px;
-      background: rgba(255,255,255,0.03);
-      border: 1px dashed rgba(139,44,245,0.35);
-      border-radius: 24px;
-      color: #cfcfcf;
-    }
-
-    .cta {
-      text-align: center;
-      background: linear-gradient(to bottom, rgba(139,44,245,0.08), transparent);
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .cta h2 {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(3rem, 8vw, 5rem);
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .cta p {
-      color: #c9c9c9;
-      max-width: 700px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-    }
-
-    footer {
-      padding: 40px 8%;
-      text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.06);
-      color: #9a9a9a;
-    }
-
-    .socials {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .socials a {
-      color: white;
-      text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      transition: 0.3s ease;
-    }
-
-    .socials a:hover {
-      border-color: var(--purple);
-      color: var(--purple-light);
-    }
-
-    .floating-contact {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .floating-contact a {
-      width: 58px;
-      height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(15,15,15,0.95);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 50%;
-      text-decoration: none;
-      font-size: 1.4rem;
-      color: white;
-      transition: 0.3s ease;
-      box-shadow: 0 0 25px rgba(0,0,0,0.4);
-    }
-
-    .floating-contact a:hover {
-      background: var(--purple);
-      transform: translateY(-5px);
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media(max-width: 768px) {
-      section {
-        padding: 80px 6%;
-      }
-
-      .headline {
-        font-size: 4rem;
-      }
-
-      .price {
-        font-size: 3rem;
-      }
-
-      .popular {
-        transform: scale(1);
-      }
-
-      .buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 320px;
-      }
+    .back:hover{
+      color:white;
     }
   </style>
 </head>
 <body>
 
-  <div class="floating-contact">
-    <a href="https://wa.me/919699676540" target="_blank">💬</a>
-    <a href="https://instagram.com/lazarusofbethany17" target="_blank">📷</a>
-  </div>
+  <div class="card">
 
-  <section class="hero">
-    <div class="hero-content">
-      <img src="YOUR_LOGO.png" alt="Lazarus Strength" class="logo">
-
-      <h1 class="headline">
-        Strength Built <span>With Intent</span>
-      </h1>
-
-      <p class="subheadline">
-        Training & Nutrition Coaching by Yohan Fernandes.<br>
-        I coach. I troubleshoot. I make sure you get results.
-      </p>
-
-      <div class="stats">
-        <div class="stat-box">
-          <h3>200+</h3>
-          <p>Clients Coached</p>
-        </div>
-
-        <div class="stat-box">
-          <h3>2020</h3>
-          <p>Offline Coaching Since</p>
-        </div>
-
-        <div class="stat-box">
-          <h3>2023</h3>
-          <p>Online Coaching Since</p>
-        </div>
-      </div>
-
-      <div class="buttons">
-        <a href="#plans" class="btn btn-primary">Apply for Coaching</a>
-        <a href="#about" class="btn btn-secondary">Learn More</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2 class="section-title">No Guesswork</h2>
-
-    <p class="section-sub">
-      Most people don’t need more motivation. They need structure.
-      Everything is adjusted around performance, fatigue, recovery, technique,
-      progression, and real-world lifestyle.
-    </p>
-
-    <div class="about-grid">
-      <div class="about-card">
-        <h3>Training With Structure</h3>
-        <p>
-          No random workouts. No copy-paste programming.
-          Every plan is built around your goals, recovery, and progression.
-        </p>
-      </div>
-
-      <div class="about-card">
-        <h3>Technique & Troubleshooting</h3>
-        <p>
-          Stuck lifts, pain, poor recovery, fatigue issues, weak points —
-          these are problems that need solutions, not motivation.
-        </p>
-      </div>
-
-      <div class="about-card">
-        <h3>Results That Last</h3>
-        <p>
-          The goal isn’t just harder training.
-          The goal is smarter progress that you can actually sustain.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="plans">
-    <h2 class="section-title">Coaching Services</h2>
-
-    <p class="section-sub">
-      Choose the support that fits your goals.
-    </p>
-
-    <div class="plans">
-
-      <div class="plan-card">
-        <h3 class="plan-title">Program Only</h3>
-        <p class="plan-sub">Best for self-motivated lifters</p>
-
-        <div class="price">₹3,000</div>
-        <p class="month">/ month</p>
-
-        <ul class="features">
-          <li><strong>Custom Training Program</strong><br>Personalized to your goals</li>
-          <li><strong>Program Adjustments</strong><br>Every 3–4 weeks</li>
-          <li><strong>Scheduled Check-ins</strong><br>Every 2–4 weeks</li>
-          <li><strong>Daily Communication</strong><br>Not Included</li>
-          <li><strong>Video Call Check-ins</strong><br>Not Included</li>
-        </ul>
-
-        <button class="btn btn-primary plan-btn" onclick="selectPlan('Program Only', 3000)">
-          Apply Now
-        </button>
-      </div>
-
-      <div class="plan-card popular">
-        <div class="badge">MOST POPULAR</div>
-
-        <h3 class="plan-title">Coaching Lite</h3>
-        <p class="plan-sub">Best balance of support & results</p>
-
-        <div class="price">₹5,000</div>
-        <p class="month">/ month</p>
-
-        <ul class="features">
-          <li><strong>Custom Training Program</strong><br>Personalized to your goals</li>
-          <li><strong>Program Adjustments</strong><br>Weekly progression</li>
-          <li><strong>Daily Communication</strong><br>24h response window</li>
-          <li><strong>Form Review</strong><br>Exercise feedback</li>
-          <li><strong>Weekly Check-in</strong><br>Structured progress review</li>
-        </ul>
-
-        <button class="btn btn-primary plan-btn" onclick="selectPlan('Coaching Lite', 5000)">
-          Start Coaching
-        </button>
-      </div>
-
-      <div class="plan-card">
-        <h3 class="plan-title">Full Coaching</h3>
-        <p class="plan-sub">Best for maximum results</p>
-
-        <div class="price">₹7,000</div>
-        <p class="month">/ month</p>
-
-        <ul class="features">
-          <li><strong>Custom Training Program</strong><br>Personalized to your goals</li>
-          <li><strong>Program Adjustments</strong><br>Weekly progression</li>
-          <li><strong>Daily Communication</strong><br>24h response window</li>
-          <li><strong>Form Review</strong><br>Detailed feedback</li>
-          <li><strong>Video Call Check-ins</strong><br>1–2 calls/week</li>
-          <li><strong>Advanced Guidance</strong><br>Fatigue & performance optimization</li>
-        </ul>
-
-        <button class="btn btn-primary plan-btn" onclick="selectPlan('Full Coaching', 7000)">
-          Apply for Full Coaching
-        </button>
-      </div>
-    </div>
-
-    <div class="every-plan">
-      <div class="mini-card">
-        <h4>Goal-Oriented Training</h4>
-        <p>Built around your progression.</p>
-      </div>
-
-      <div class="mini-card">
-        <h4>Progress Tracking</h4>
-        <p>Structured monitoring & adjustments.</p>
-      </div>
-
-      <div class="mini-card">
-        <h4>Evidence-Based</h4>
-        <p>Methods that actually make sense.</p>
-      </div>
-
-      <div class="mini-card">
-        <h4>Professional Coaching</h4>
-        <p>100% confidential & serious guidance.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2 class="section-title">Client Results</h2>
-
-    <div class="placeholder">
-      <h3 style="margin-bottom:20px;font-size:2rem;">Transformations & Testimonials Coming Soon</h3>
-      <p>
-        Client progress photos, strength PRs, testimonials,
-        and athlete highlights will be added here.
-      </p>
-    </div>
-  </section>
-
-  <section class="cta">
-    <h2>Stop Guessing</h2>
+    <h1>
+      Complete <span>Payment</span>
+    </h1>
 
     <p>
-      If your training isn’t changing, something needs to change.
-      Apply for coaching and start training with actual structure.
+      Your application has been submitted successfully.
+      Complete the payment to secure your coaching slot.
     </p>
 
-    <a href="#plans" class="btn btn-primary">
-      Apply for Coaching
-    </a>
-  </section>
-
-  <footer>
-    <h3 style="font-size:2rem;margin-bottom:10px;">Lazarus Strength</h3>
-    <p>Stronger. Smarter. Consistent.</p>
-
-    <div class="socials">
-      <a href="https://instagram.com/lazarusofbethany17" target="_blank">
-        Instagram
-      </a>
-
-      <a href="https://wa.me/919699676540" target="_blank">
-        WhatsApp
-      </a>
+    <div class="amount" id="amount">
+      ₹0
     </div>
-  </footer>
+
+    <a class="pay-btn" id="payBtn">
+      Pay with UPI
+    </a>
+
+    <a href="index.html" class="back">
+      Return to Home
+    </a>
+
+  </div>
 
   <script>
-    function selectPlan(plan, amount) {
-      localStorage.setItem('selectedPlan', plan);
-      localStorage.setItem('selectedAmount', amount);
 
-      window.location.href = 'https://surveyheart.com/form/69837ca19bf14a885bfc9621';
-    }
+    const params = new URLSearchParams(window.location.search);
 
-    window.addEventListener('focus', () => {
-      const amount = localStorage.getItem('selectedAmount');
+    const amount = params.get('amount') || '0';
 
-      if (amount && !sessionStorage.getItem('paymentOpened')) {
-        sessionStorage.setItem('paymentOpened', 'true');
+    document.getElementById('amount').innerText = `₹${amount}`;
 
-        setTimeout(() => {
-          const upiLink = `upi://pay?pa=yohanrocks17dec@oksbi&pn=Yohan%20Fernandes&am=${amount}&cu=INR`;
-          window.location.href = upiLink;
-        }, 1500);
-      }
-    });
+    const upiLink =
+    `upi://pay?pa=yohanrocks17dec@oksbi&pn=Yohan%20Fernandes&am=${amount}&cu=INR`;
+
+    document.getElementById('payBtn').href = upiLink;
+
   </script>
 
 </body>
